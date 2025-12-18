@@ -4,6 +4,7 @@ import { AuthController } from './auth.controller';
 import { AuthService } from './auth.service';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from 'src/prisma/prisma.service';
+import { JwtStrategy } from './jwt.strategy';
 
 @Module({
   imports: [
@@ -12,7 +13,7 @@ import { PrismaService } from 'src/prisma/prisma.service';
       signOptions: { expiresIn: '1d' },})
   ],
   controllers: [AuthController],
-  providers: [AuthService,PrismaService]
+  providers: [AuthService,PrismaService,JwtStrategy]
 })
 export class AuthModule {
 }
