@@ -17,10 +17,10 @@ export class UsersController {
     update(
         @CurrentUser() user: { sub: number, email: string; roles: 'USER' | 'ADMIN' },
         @Body() body: {
-  email: string;
-  role: 'USER' | 'ADMIN';
-  password?: string;
-  name?: string;
+                email: string;
+                role: 'USER' | 'ADMIN';
+                password?: string;
+                name?: string;
 },
     ) {
         return this.userService.updateProfile(user.sub, body);
